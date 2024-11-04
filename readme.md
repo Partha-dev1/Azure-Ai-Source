@@ -47,6 +47,7 @@ Run the Script:
 Open a terminal or command prompt and navigate to the project directory.
 Execute the Python script using python script_name.py (replace script_name.py with the actual filename).
 
+
 #SDK-CLIENT
 Language Detection with Azure Cognitive Services Text Analytics
 This code demonstrates how to use the Azure Cognitive Services Text Analytics API to detect the primary language of a given text string.
