@@ -1,4 +1,49 @@
 #REST-CLIENT
+Language Detection with Azure Cognitive Services Text Analytics (REST API)
+This code demonstrates how to detect the primary language of a given text string using the Azure Cognitive Services Text Analytics API's REST interface.
+
+Requirements:
+Python 3.x
+Standard libraries: http.client, base64, json, urllib
+An Azure Cognitive Services Text Analytics resource with an endpoint and key
+Getting Started:
+
+Create an Azure Cognitive Services Text Analytics Resource:
+Follow the instructions on the Azure portal (https://learn.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark) to create a Text Analytics resource.
+
+Obtain your Endpoint and Key:
+Navigate to your Text Analytics resource in the Azure portal.
+Under "Essentials," copy the "Endpoint" and "Primary Key" values.
+
+Configuration:
+Replace YOUR_AI_SERVICES_ENDPOINT and YOUR_AI_SERVICES_KEY in the environment variables section with your actual values obtained from Azure.
+Code Breakdown:
+Environment Variables:
+The code does not use dotenv in this case, but you can still consider adding it for improved security.
+
+main Function:
+Establishes global variables ai_endpoint and ai_key to store the loaded credentials.
+Enters a loop to continuously prompt the user for text input.
+If the user enters a text string other than "quit", calls the GetLanguage function to detect the language.
+An exception handler catches any errors that may occur during the process.
+
+GetLanguage Function:
+Constructs a JSON request body with a document containing the user's text.
+Prints the formatted JSON body for reference.
+Establishes an HTTPS connection to the Text Analytics service endpoint.
+Defines headers for content type and authentication using the API key.
+Sends a POST request with the JSON body and headers to the /text/analytics/v3.1/languages? endpoint.
+Retrieves the response data and checks the status code for success (200).
+If successful, parses the JSON response.
+Prints the complete response (optional, for debugging).
+Iterates through each document in the response and prints the detected language name.
+If the request fails, prints the entire error response.
+Closes the HTTP connection.
+
+Instructions:
+Run the Script:
+Open a terminal or command prompt and navigate to the project directory.
+Execute the Python script using python script_name.py (replace script_name.py with the actual filename).
 
 #SDK-CLIENT
 Language Detection with Azure Cognitive Services Text Analytics
