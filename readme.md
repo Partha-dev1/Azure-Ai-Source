@@ -1,3 +1,4 @@
+https://github.com/Partha-dev1/Azure-Ai-Source/blob/main/readme.md
 #REST-CLIENT
 Language Detection with Azure Cognitive Services Text Analytics (REST API)
 This code demonstrates how to detect the primary language of a given text string using the Azure Cognitive Services Text Analytics API's REST interface.
