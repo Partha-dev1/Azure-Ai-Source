@@ -91,3 +91,77 @@ Run the Script:
 Open a terminal or command prompt and navigate to the project directory.
 
 Execute the Python script using python script_name.py (replace script_name.py with the actual filename).
+
+
+#IMAGE-ANALYSIS
+This code demonstrates how to use the Azure AI Vision API to analyze images and remove backgrounds. The code performs image analysis to detect captions, tags, objects, and people, and then removes the background from the image using Azure’s computer vision capabilities.
+
+Features:
+
+Image Analysis: Analyzes an image to detect captions, dense captions, tags, objects, and people.
+Background Removal: Removes the background of an image, saving the processed image locally.
+Prerequisites
+Python 3.7+
+Azure subscription with AI Vision services enabled
+Azure AI Vision API Key and Endpoint URL
+
+Required Python packages:
+
+dotenv
+Pillow
+matplotlib
+requests
+azure-ai-vision
+azure-core
+Setup
+
+Clone the Repository:
+bash
+Copy code
+git clone <repository_url>
+cd <repository_folder>
+
+Install Required Packages:
+
+bash
+Copy code
+pip install -r requirements.txt
+
+Set Up Environment Variables:
+
+Create a .env file in the root directory of the project.
+Add your Azure AI Vision API Key and Endpoint URL:
+plaintext
+Copy code
+AI_SERVICE_ENDPOINT="https://<your-endpoint>.cognitiveservices.azure.com/"
+AI_SERVICE_KEY="<your-api-key>"
+
+Add an Image:
+
+Place the image you want to analyze in an images directory at the root of the project.
+The default image filename is street.jpg. You can change it by passing the filename as an argument when running the script.
+Usage
+
+Run the Main Script:
+
+Run the script to analyze the image and remove the background:
+bash
+Copy code
+python main.py
+
+Alternatively, specify a custom image file:
+bash
+Copy code
+python main.py images/your_image.jpg
+
+Output:
+
+The analysis results are printed to the console.
+Annotated images with detected objects and people are saved as objects.jpg and people.jpg.
+The background-removed image is saved as background.png.
+
+Functions:
+
+main(): Main function to execute the image analysis and background removal processes.
+AnalyzeImage(): Analyzes the image for captions, tags, objects, and people.
+BackgroundForeground(): Removes the background from the image or generates a foreground matte.
