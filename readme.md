@@ -1,5 +1,7 @@
 AZURE-AI-SOURCE
 
+LAB-01
+
 #REST-CLIENT
 Language Detection with Azure Cognitive Services Text Analytics (REST API)
 This code demonstrates how to detect the primary language of a given text string using the Azure Cognitive Services Text Analytics API's REST interface.
@@ -92,6 +94,7 @@ Open a terminal or command prompt and navigate to the project directory.
 
 Execute the Python script using python script_name.py (replace script_name.py with the actual filename).
 
+LAB-02
 
 #IMAGE-ANALYSIS
 This code demonstrates how to use the Azure AI Vision API to analyze images and remove backgrounds. The code performs image analysis to detect captions, tags, objects, and people, and then removes the background from the image using Azure’s computer vision capabilities.
@@ -163,5 +166,7 @@ The background-removed image is saved as background.png.
 Functions:
 
 main(): Main function to execute the image analysis and background removal processes.
+
 AnalyzeImage(): Analyzes the image for captions, tags, objects, and people.
+
 BackgroundForeground(): Removes the background from the image or generates a foreground matte.
