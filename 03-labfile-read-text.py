@@ -1,8 +1,8 @@
-#env-file
+#Envornment
 AI_SERVICE_ENDPOINT="https://xxxxxx.cognitiveservices.azure.com/"
 AI_SERVICE_KEY="xxxxxx"
 
-#read-text
+#Read text
 from dotenv import load_dotenv
 import os
 import time
