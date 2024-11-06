@@ -99,10 +99,10 @@ LAB-02
 #IMAGE-ANALYSIS
 This code demonstrates how to use the Azure AI Vision API to analyze images and remove backgrounds. The code performs image analysis to detect captions, tags, objects, and people, and then removes the background from the image using Azure’s computer vision capabilities.
 
-Features:
+Features:Image Analysis: Analyzes an image to detect captions, dense captions, tags, objects, and people.
 
-Image Analysis: Analyzes an image to detect captions, dense captions, tags, objects, and people.
 Background Removal: Removes the background of an image, saving the processed image locally.
+
 Prerequisites
 Python 3.7+
 Azure subscription with AI Vision services enabled
@@ -170,3 +170,58 @@ main(): Main function to execute the image analysis and background removal proce
 AnalyzeImage(): Analyzes the image for captions, tags, objects, and people.
 
 BackgroundForeground(): Removes the background from the image or generates a foreground matte.
+
+LAB-03
+
+#READ-TEXT
+This code leverages Azure's AI Vision services to analyze images and extract text. The script can read and display both printed and handwritten text from provided image files. It uses the Azure AI Vision Read API to detect text, identify bounding polygons, and display results.
+
+Requirements
+Python 3.8+
+Azure AI Vision SDK: Install via pip:
+bash
+Copy code
+pip install azure-ai-vision
+Environment Variables: Store API credentials securely with .env using python-dotenv:
+bash
+Copy code
+pip install python-dotenv
+Project Structure
+main(): Prompts the user to select an image file to analyze.
+GetTextRead(image_file): Extracts text from the image, displays bounding polygons, and overlays detected text on the image.
+Image Files
+Place images you want to analyze in an images folder in the project directory.
+
+Configuration
+Create a .env file in the root directory with the following keys:
+plaintext
+Copy code
+AI_SERVICE_ENDPOINT="https://<your_service>.cognitiveservices.azure.com/"
+AI_SERVICE_KEY="<your_key>"
+Ensure your Azure AI Vision resource is set up with READ permissions for text extraction.
+Running the Code
+
+Execute the script with:
+bash
+Copy code
+python <script_name>.py
+Select the operation:
+Enter 1 to read printed text from Lincoln.jpg.
+Enter 2 to read handwritten text from Note.jpg.
+The results display extracted text, bounding polygons, and overlays on the image.
+
+Output
+Console: Displays detected text with bounding polygons and confidence levels.
+Image Output: Saves the image with annotated text as text.jpg in the project directory.
+Dependencies
+plaintext
+Copy code
+azure-ai-vision
+python-dotenv
+Pillow
+matplotlib
+Install dependencies via:
+
+bash
+Copy code
+pip install -r requirements.txt
