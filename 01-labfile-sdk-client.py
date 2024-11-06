@@ -1,6 +1,7 @@
 #Enviornment
 AI_SERVICE_ENDPOINT="https://xxxxxx.cognitiveservices.azure.com/"
 AI_SERVICE_KEY="xxxxxx"
+
 #sdk-client
 from dotenv import load_dotenv
 import os
