@@ -187,7 +187,9 @@ bash
 Copy code
 pip install python-dotenv
 Project Structure
+
 main(): Prompts the user to select an image file to analyze.
+
 GetTextRead(image_file): Extracts text from the image, displays bounding polygons, and overlays detected text on the image.
 Image Files
 Place images you want to analyze in an images folder in the project directory.
@@ -196,8 +198,11 @@ Configuration
 Create a .env file in the root directory with the following keys:
 plaintext
 Copy code
+
 AI_SERVICE_ENDPOINT="https://<your_service>.cognitiveservices.azure.com/"
+
 AI_SERVICE_KEY="<your_key>"
+
 Ensure your Azure AI Vision resource is set up with READ permissions for text extraction.
 Running the Code
 
@@ -205,14 +210,18 @@ Execute the script with:
 bash
 Copy code
 python <script_name>.py
+
 Select the operation:
 Enter 1 to read printed text from Lincoln.jpg.
+
 Enter 2 to read handwritten text from Note.jpg.
+
 The results display extracted text, bounding polygons, and overlays on the image.
 
 Output
 Console: Displays detected text with bounding polygons and confidence levels.
 Image Output: Saves the image with annotated text as text.jpg in the project directory.
+
 Dependencies
 plaintext
 Copy code
@@ -220,6 +229,7 @@ azure-ai-vision
 python-dotenv
 Pillow
 matplotlib
+
 Install dependencies via:
 
 bash
