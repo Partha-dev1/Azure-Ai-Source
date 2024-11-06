@@ -1,6 +1,6 @@
 #Enviroment
-'AI_SERVICE_ENDPOINT=your_azure_ai_services_endpoint'
-'AI_SERVICE_KEY=your_azure_ai_services_key'
+AI_SERVICE_ENDPOINT="https://xxxxxx.cognitiveservices.azure.com/"
+AI_SERVICE_KEY="xxxxxx"
 #Image Analysis
 from dotenv import load_dotenv
 import os
