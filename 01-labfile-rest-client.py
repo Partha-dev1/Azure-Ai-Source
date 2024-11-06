@@ -1,6 +1,6 @@
 #Environment
-'AI_SERVICE_ENDPOINT=YOUR_AI_SERVICES_ENDPOINT'
-'AI_SERVICE_KEY=YOUR_AI_SERVICES_KEY'
+AI_SERVICE_ENDPOINT="https://xxxxxx.cognitiveservices.azure.com/"
+AI_SERVICE_KEY="xxxxxx"
 
 #rest-client
 from dotenv import load_dotenv
