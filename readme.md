@@ -119,23 +119,19 @@ azure-core
 Setup
 
 Clone the Repository:
-bash
-Copy code
+
 git clone <repository_url>
 cd <repository_folder>
 
 Install Required Packages:
 
-bash
-Copy code
 pip install -r requirements.txt
 
 Set Up Environment Variables:
 
 Create a .env file in the root directory of the project.
 Add your Azure AI Vision API Key and Endpoint URL:
-plaintext
-Copy code
+
 AI_SERVICE_ENDPOINT="https://<your-endpoint>.cognitiveservices.azure.com/"
 AI_SERVICE_KEY="<your-api-key>"
 
@@ -148,13 +144,11 @@ Usage
 Run the Main Script:
 
 Run the script to analyze the image and remove the background:
-bash
-Copy code
+
 python main.py
 
 Alternatively, specify a custom image file:
-bash
-Copy code
+
 python main.py images/your_image.jpg
 
 Output:
@@ -179,12 +173,10 @@ This code leverages Azure's AI Vision services to analyze images and extract tex
 Requirements
 Python 3.8+
 Azure AI Vision SDK: Install via pip:
-bash
-Copy code
+
 pip install azure-ai-vision
 Environment Variables: Store API credentials securely with .env using python-dotenv:
-bash
-Copy code
+
 pip install python-dotenv
 Project Structure
 
@@ -196,8 +188,6 @@ Place images you want to analyze in an images folder in the project directory.
 
 Configuration
 Create a .env file in the root directory with the following keys:
-plaintext
-Copy code
 
 AI_SERVICE_ENDPOINT="https://<your_service>.cognitiveservices.azure.com/"
 
@@ -207,8 +197,7 @@ Ensure your Azure AI Vision resource is set up with READ permissions for text ex
 Running the Code
 
 Execute the script with:
-bash
-Copy code
+
 python <script_name>.py
 
 Select the operation:
@@ -223,8 +212,7 @@ Console: Displays detected text with bounding polygons and confidence levels.
 Image Output: Saves the image with annotated text as text.jpg in the project directory.
 
 Dependencies
-plaintext
-Copy code
+
 azure-ai-vision
 python-dotenv
 Pillow
@@ -232,6 +220,44 @@ matplotlib
 
 Install dependencies via:
 
-bash
-Copy code
 pip install -r requirements.txt
+
+LAB-04
+
+#Text-OpenAI
+This project is a Python-based chatbot that uses Azure OpenAI's language capabilities to assist users with hiking suggestions. The bot, named "Forest," provides users with hiking recommendations around Rainier National Park by default but can also make suggestions for other areas if specified by the user. Each recommendation includes a unique insight into the local nature on the hike, enhancing the user experience.
+
+Features
+Interactive Chat Interface: Users can ask the chatbot for hiking recommendations.
+Dynamic Responses: The chatbot responds with a summary of suggested hikes, each varying in length and including a nature fact.
+Customizable Hiking Locations: Users can specify their area of interest, and "Forest" will provide hikes in that region.
+User-Friendly Input/Output: Type quit to exit the program or enter prompts to get personalized responses.
+Prerequisites
+Ensure you have the following:
+
+Python 3.x installed on your machine.
+
+Azure OpenAI account with API keys and endpoints.
+
+Python packages: openai, dotenv. You can install them by running:
+
+
+pip install openai python-dotenv
+Setup
+Clone the Repository: Clone this repository to your local machine.
+
+
+git clone https://github.com/Partha-dev1/azure-openai-hiking-assistant.git
+cd azure-openai-hiking-assistant
+Environment Variables: Create a .env file in the root directory and add your Azure OpenAI credentials:
+
+AZURE_OAI_ENDPOINT=your_endpoint_here
+AZURE_OAI_KEY=your_key_here
+AZURE_OAI_DEPLOYMENT=your_deployment_name_here
+Run the Script: Start the chatbot by running:
+
+
+python hiking_assistant.py
+Usage
+Input Prompts: Enter your hiking queries when prompted. Forest will default to Rainier National Park if no location is provided.
+End the Chat: Type quit to exit the program.
