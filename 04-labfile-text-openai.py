@@ -1,18 +1,22 @@
+#Env file
+AZURE_OAI_ENDPOINT="xxxxx"
+AZURE_OAI_KEY="xxxxx"
+AZURE_OAI_DEPLOYMENT="xxxxx"
+
+
+#Python file
 import os
 from dotenv import load_dotenv
-# Add Azure OpenAI package
-# Add Azure OpenAI package
 from openai import AzureOpenAI
 
 def main():
     try:
-        # Get configuration settings
+        # Load configuration settings
         load_dotenv()
         azure_oai_endpoint = os.getenv("AZURE_OAI_ENDPOINT")
         azure_oai_key = os.getenv("AZURE_OAI_KEY")
         azure_oai_deployment = os.getenv("AZURE_OAI_DEPLOYMENT")
 
-        # Initialize the Azure OpenAI client...
         # Initialize the Azure OpenAI client
         client = AzureOpenAI(
             azure_endpoint=azure_oai_endpoint,
@@ -20,12 +24,13 @@ def main():
             api_version="2024-02-15-preview"
         )
 
-        # Create a system message
-        system_message = """I am a hiking enthusiast named Forest who helps people discover hikes in their area. 
-        If no area is specified, I will default to near Rainier National Park. 
-        I will then provide three suggestions for nearby hikes that vary in length. 
-        I will also share an interesting fact about the local nature on the hikes when making a recommendation.
-        """
+        # Define the system message
+        system_message = (
+            "I am a hiking enthusiast named Forest who helps people discover hikes in their area. "
+            "If no area is specified, I will default to near Rainier National Park. "
+            "I will then provide three suggestions for nearby hikes that vary in length. "
+            "I will also share an interesting fact about the local nature on the hikes when making a recommendation."
+        )
 
         # Initialize messages array
         messages_array = [{"role": "system", "content": system_message}]
@@ -38,10 +43,9 @@ def main():
             if len(input_text) == 0:
                 print("Please enter a prompt.")
                 continue
-            print("\nSending request for summary to Azure OpenAI endpoint...\n\n")
 
-            # Add code to send request...
-            # Add code to send request...
+            print("\nSending request for summary to Azure OpenAI endpoint...\n")
+
             # Send request to Azure OpenAI model
             messages_array.append({"role": "user", "content": input_text})
             response = client.chat.completions.create(
@@ -59,7 +63,7 @@ def main():
             print("Summary: " + generated_text + "\n")
 
     except Exception as ex:
-        print(ex)
+        print(f"Error: {ex}")
 
-if _name_ == '_main_':
-    main()
+if __name__ == '__main__':
+    main()
