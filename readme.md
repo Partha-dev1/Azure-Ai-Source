@@ -261,3 +261,132 @@ python hiking_assistant.py
 Usage
 Input Prompts: Enter your hiking queries when prompted. Forest will default to Rainier National Park if no location is provided.
 End the Chat: Type quit to exit the program.
+
+LAB-5
+
+#Text Analysis 
+This project demonstrates how to leverage Azure AI's Text Analytics service to process text data, analyze sentiment, extract key phrases, and recognize entities from text files.
+
+Features
+Detect the language of a text document.
+Analyze sentiment (positive, neutral, or negative) of the text.
+Extract key phrases to identify significant terms.
+Recognize named entities and their categories (e.g., Person, Organization, Location).
+Recognize linked entities with associated URLs.
+Requirements
+Prerequisites
+Python 3.8 or later.
+Azure subscription with Text Analytics resource created.
+
+.env file containing the following environment variables:
+AI_SERVICE_ENDPOINT="Your_Text_Analytics_Endpoint"
+AI_SERVICE_KEY="Your_Text_Analytics_Key"
+
+Install required Python packages:
+
+pip install azure-ai-textanalytics python-dotenv
+
+Folder Structure
+
+|-- reviews/          # Folder containing text files to be analyzed.
+|-- main.py           # Python script for text analysis.
+|-- .env              # Environment file with service credentials.
+|-- README.md         # Project documentation.
+
+How to Run
+Set Up Environment Variables:
+Create a .env file in the project directory and add your Azure Text Analytics endpoint and key.
+
+Prepare Text Files:
+Place the text files you want to analyze in the reviews folder.
+
+Run the Script:
+Execute the script:
+
+python main.py
+View Results:
+The script will process each text file in the reviews folder and display the following for each file:
+
+Language
+Sentiment
+Key phrases
+Entities and their categories
+Linked entities and URLs
+
+LAB-6
+
+#Question-Answering-Solution
+This project provides a simple interface to interact with Azure AI's Language Service for creating a Question Answering (QA) solution. It enables users to ask questions about a specific knowledge base, and the application responds with relevant answers based on the data in the deployed project.
+
+Prerequisites
+Before running this application, ensure you have the following:
+
+Azure Account: A valid Azure subscription is required.
+Azure Language Service Resource:
+A deployed knowledge base (FAQ) in the Question Answering feature of Azure Language Service.
+Access to the endpoint URL and API key of the resource.
+Python Environment:
+Python 3.7 or higher installed.
+Dependencies listed in requirements.txt installed.
+Installation
+Clone this repository or copy the code files into your project directory.
+
+git clone https://github.com/your-repository/question-answering-solution.git
+cd question-answering-solution
+Create and activate a virtual environment (optional but recommended):
+
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+Install the required Python packages:
+
+pip install -r requirements.txt
+Configuration
+Create an .env file in the root directory of your project and add the following keys:
+
+AI_SERVICE_ENDPOINT="https://<your-service-name>.cognitiveservices.azure.com/"
+AI_SERVICE_KEY="<your-api-key>"
+QA_PROJECT_NAME="<your-project-name>"
+QA_DEPLOYMENT_NAME="<your-deployment-name>"
+Replace <your-service-name>, <your-api-key>, <your-project-name>, and <your-deployment-name> with your Azure Language Service credentials.
+
+Running the Application
+Run the Python script:
+
+python app.py
+Enter a question when prompted. For example:
+
+
+Question:
+What is the refund policy?
+
+Answer:
+Refunds are available within 30 days of purchase.
+Confidence: 0.95
+Source: policy_document.txt
+To exit the application, type quit.
+
+Key Features
+Interactive interface for submitting questions.
+Retrieves answers with confidence scores and sources.
+Easy integration with Azure Language Service's Question Answering feature.
+Error Handling
+If any error occurs, it will be printed to the console. Common issues include:
+
+Incorrect configuration in the .env file.
+Network issues connecting to the Azure service.
+API quota or authentication failures.
+Dependencies
+
+Ensure the following packages are installed:
+
+python-dotenv
+azure-core
+azure-ai-language-questionanswering
+
+Dependencies are automatically handled when you run:
+
+pip install -r requirements.txt
+
+LAB-7
+
+#
