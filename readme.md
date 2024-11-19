@@ -451,4 +451,51 @@ Determines dates for specific days.
 
 LAB-8
 
-#
+#Speech-Recognition & Synthesis
+This project demonstrates the integration of Azure Cognitive Services' Speech SDK to recognize speech from an audio file and synthesize spoken responses. The example application listens to an audio prompt (time.wav) and, when the command is "What time is it?", provides the current time as a synthesized voice response.
+
+Prerequisites
+Azure Requirements:
+Azure Account: A valid Azure subscription is required.
+Azure Speech Service Resource:
+Access to the Speech API Key and Region for your Speech Service resource.
+Development Environment:
+Python 3.7 or higher.
+Install dependencies listed in requirements.txt.
+Place an audio file named time.wav in the root directory of the project.
+Installation
+
+Clone this repository or copy the code into your project directory:
+
+git clone https://github.com/your-repository/speech-recognition-synthesis.git
+cd speech-recognition-synthesis
+
+Create and activate a virtual environment:
+
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+Install required Python packages:
+
+pip install -r requirements.txt
+Configuration
+
+Create an .env file in the root directory and add the following keys:
+
+SPEECH_KEY="<your-speech-api-key>"
+SPEECH_REGION="<your-speech-region>"
+Replace <your-speech-api-key> and <your-speech-region> with the actual values from your Azure Speech Service resource.
+
+Ensure there is an audio file named time.wav in the project directory. This file should contain spoken input, such as "What time is it?".
+
+Running the Application
+
+Start the application:
+
+python app.py
+The application will play the time.wav file and attempt to transcribe its contents. If the transcription matches "What time is it?", the application will synthesize and speak the current time.
+
+Features
+Speech Recognition: Transcribes spoken audio from the provided file.
+Speech Synthesis: Responds to recognized commands with synthesized speech.
+Custom Commands: The example listens for "What time is it?" and responds appropriately.
