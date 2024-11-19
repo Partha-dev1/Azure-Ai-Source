@@ -389,4 +389,66 @@ pip install -r requirements.txt
 
 LAB-7
 
+#Language-Detection & Intent-Analysis-Solution 
+This project demonstrates a conversational AI solution using Azure Language Services' Conversational Analysis feature. It allows users to interact with the system by asking questions related to time, date, or day. The application processes user inputs to detect intents and entities, then provides appropriate responses.
+
+Prerequisites
+Azure Requirements:
+Azure Account: A valid Azure subscription is required.
+Language Service Resource:
+A deployed conversational project with intents like GetTime, GetDate, and GetDay in Azure Language Services.
+Access to the resource's endpoint URL and API key.
+Development Environment:
+Python 3.7 or higher.
+Install dependencies listed in requirements.txt.
+Installation
+
+Clone this repository or copy the code into your project directory:
+
+git clone https://github.com/your-repository/conversation-intent-analysis.git
+cd conversation-intent-analysis
+
+Create and activate a virtual environment:
+
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+Install required Python packages:
+
+pip install -r requirements.txt
+Configuration
+
+Create an .env file in the root directory and add the following keys:
+
+LS_CONVERSATIONS_ENDPOINT="https://<your-service-name>.cognitiveservices.azure.com/"
+LS_CONVERSATIONS_KEY="<your-api-key>"
+Replace <your-service-name> and <your-api-key> with the actual values from your Azure Language Services resource.
+
+Ensure the Azure Language Services resource contains the Clock project with intents and entities that match the logic in this application:
+
+Intents: GetTime, GetDate, GetDay.
+Entities: Location, Date, Weekday.
+Running the Application
+
+Start the application:
+python app.py
+
+Enter text prompts when prompted, such as:
+
+"What time is it in Tokyo?"
+"What day is it today?"
+"What is the date for next Friday?"
+To exit the application, type quit.
+
+Features
+Intent Recognition: Detects the user's intent (e.g., GetTime, GetDate, GetDay).
+Entity Detection: Identifies specific details like locations, dates, or weekdays from user input.
+
+Custom Responses:
+Provides the current time in specified locations.
+Converts dates into day names.
+Determines dates for specific days.
+
+LAB-8
+
 #
