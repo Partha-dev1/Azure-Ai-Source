@@ -499,3 +499,169 @@ Features
 Speech Recognition: Transcribes spoken audio from the provided file.
 Speech Synthesis: Responds to recognized commands with synthesized speech.
 Custom Commands: The example listens for "What time is it?" and responds appropriately.
+
+LAB-9
+
+#Azure OpenAI Prompt Engineering Tool
+This project demonstrates how to use Azure OpenAI's GPT model with Python to explore the power of prompt engineering. It allows you to dynamically input system messages (prompts) and interact with the model in real time.
+
+Features
+Dynamic Prompt Editing: Pause the application to update the system message before sending requests.
+Real-Time User Input: Enter user messages during runtime to interact with the model.
+Async Support: Fully asynchronous implementation for non-blocking requests.
+Customizable Settings: Easily adjust model parameters like temperature and max tokens.
+
+Setup Instructions
+Prerequisites
+Python 3.8 or higher installed.
+Azure OpenAI Service set up with a deployed GPT model.
+Required Python libraries: dotenv, openai.
+Installation
+
+Clone this repository:
+
+git clone <repository_url>
+cd <repository_name>
+
+Create a .env file in the project directory and add your Azure OpenAI credentials:
+
+AZURE_OAI_ENDPOINT="https://<your_endpoint>.openai.azure.com/"
+AZURE_OAI_KEY="<your_azure_openai_key>"
+AZURE_OAI_DEPLOYMENT="<your_model_deployment_name>"
+
+Install dependencies:
+
+pip install -r requirements.txt
+Create a system.txt file in the project directory and populate it with the initial system message (e.g., "You are a helpful assistant.").
+
+How to Use
+Run the application:
+
+python main.py
+Interact with the model:
+
+Modify the system message by editing the system.txt file.
+Enter your user message at the prompt when prompted.
+Type quit to exit the program.
+
+Code Highlights
+Setting Up Azure OpenAI
+
+client = AsyncAzureOpenAI(
+    azure_endpoint=azure_oai_endpoint,
+    api_key=azure_oai_key,
+    api_version="2024-02-15-preview"
+)
+Sending Requests to the Model
+python
+Copy code
+response = await client.chat.completions.create(
+    model=model,
+    messages=messages,
+    temperature=0.7,
+    max_tokens=800
+)
+print(response.choices[0].message.content)
+
+Customization
+Adjust Model Parameters
+temperature: Controls creativity (0 = deterministic, 1 = creative).
+max_tokens: Sets the maximum response length.
+Print Full API Response
+Set printFullResponse = True to display the entire response from Azure OpenAI.
+
+LAB-10
+
+#Azure OpenAI with Cognitive Search Integration
+This Python application demonstrates how to enhance Azure OpenAI's GPT model by integrating it with Azure Cognitive Search to answer questions using your custom data. Perfect for building intelligent chatbots, virtual assistants, or knowledge-based solutions powered by your own datasets!
+
+Features
+Custom Data Integration: Use your Azure Cognitive Search index as a knowledge base.
+Dynamic Question Answering: Ask questions, and the model fetches relevant answers from your data.
+Citations: Optionally display sources for the model's responses.
+Azure OpenAI Extensions: Utilize the latest extensions for seamless integration.
+
+Prerequisites
+Azure Services Setup:
+Azure OpenAI Service with GPT deployment.
+Azure Cognitive Search with an indexed dataset.
+Python Environment:
+Python 3.8 or higher installed.
+Required Libraries:
+Install dependencies listed in requirements.txt.
+
+Setup Instructions
+1. Clone the Repository
+
+git clone <repository_url>
+cd <repository_name>
+2. Add Environment Variables
+
+Create a .env file in the project root and configure it with your Azure credentials:
+
+AZURE_OAI_ENDPOINT=https://<your-resource-name>.openai.azure.com
+AZURE_OAI_KEY=<your-openai-key>
+AZURE_OAI_DEPLOYMENT=<your-deployment-name>
+AZURE_SEARCH_ENDPOINT=https://<your-search-service-name>.search.windows.net
+AZURE_SEARCH_KEY=<your-search-key>
+AZURE_SEARCH_INDEX=<your-search-index>
+
+3. Install Dependencies
+
+pip install -r requirements.txt
+
+How to Run
+Start the Application
+
+python main.py
+Ask Questions
+
+Enter your question when prompted (e.g., "What are the best places to visit in Paris?").
+The application will fetch relevant data from your Azure Cognitive Search index and generate a response.
+Optional Citations
+
+Enable citations by setting show_citations = True in the script.
+
+Code Highlights
+Azure OpenAI and Cognitive Search Configuration
+
+extension_config = {
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": azure_search_endpoint,
+                "key": azure_search_key,
+                "indexName": azure_search_index,
+            }
+        }
+    ]
+}
+Making Requests to OpenAI
+
+response = client.chat.completions.create(
+    model=azure_oai_deployment,
+    temperature=0.5,
+    max_tokens=1000,
+    messages=[
+        {"role": "system", "content": "You are a helpful travel agent"},
+        {"role": "user", "content": text}
+    ],
+    extra_body=extension_config
+)
+Citations for Transparency
+
+if show_citations:
+    print("Citations:")
+    citations = response.choices[0].message.context["messages"][0]["content"]
+    citation_json = json.loads(citations)
+    for c in citation_json["citations"]:
+        print(f"  Title: {c['title']}\n    URL: {c['url']}")
+
+Customization
+Adjust Model Behavior
+Modify the system message to suit your use case (e.g., replace "You are a helpful travel agent" with "You are a technical support assistant").
+Tune Model Parameters
+temperature: Controls creativity (lower for factual answers, higher for creative responses).
+max_tokens: Limits the length of the response.
+
